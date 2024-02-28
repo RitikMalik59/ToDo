@@ -9,7 +9,7 @@
     <title>ToDo List</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <script src="js/jquery-3.7.1.js"></script>
 
 </head>
 
@@ -41,6 +41,17 @@
                 Checked checkbox
             </label>
         </div> -->
+        <div class="input-group mb-3">
+            <div class="input-group-text">
+                <input class="form-check-input mt-0" type="checkbox" value="checked" aria-label="Checkbox for following text input" checked>
+            </div>
+            <input type="text" id="" name="task" class="form-control" value="" aria-label="Text input with checkbox">
+            <div class="input-group-text">
+                <a href="delete.php?delete_id=" onclick="return confirm('Are you sure about deleting this task?')">
+                    <input type="button" class="btn-close" aria-label="Close">
+                </a>
+            </div>
+        </div>
 
         <!-- <--- input group Checkboxes and radios --->
         <?php
@@ -51,9 +62,18 @@
 
             <div class="input-group mb-3">
                 <div class="input-group-text">
-                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                    <?php
+                    $checked = '';
+                    if ($row['status'] == 1) {
+                        $checked = 'checked'; ?>
+                        <input class="form-check-input mt-0" type="checkbox" id="<?php echo $row['id']; ?>" value="<?php echo $row['status']; ?>" aria-label="Checkbox for following text input" <?php echo $checked; ?>>
+                    <?php } else { ?>
+                        <input class="form-check-input mt-0" type="checkbox" id="<?php echo $row['id']; ?>" value="<?php echo $row['status']; ?>" aria-label="Checkbox for following text input" <?php echo $checked; ?>>
+
+                    <?php } ?>
                 </div>
-                <input type="text" class="form-control" value="<?php echo $row['title']; ?>" aria-label="Text input with checkbox">
+
+                <input type="text" id="<?php echo $row['id']; ?>" name="task" class="form-control" value="<?php echo $row['title']; ?>" aria-label="Text input with checkbox">
                 <div class="input-group-text">
                     <a href="delete.php?delete_id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure about deleting this task?')">
                         <input type="button" class="btn-close" aria-label="Close">
@@ -70,6 +90,7 @@
     <!-- < ----- Footer ----- > -->
     <footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
     </footer>
 </body>
 
