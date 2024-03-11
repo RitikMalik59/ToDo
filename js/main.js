@@ -8,7 +8,7 @@ $(document).ready(function () {
         if (e.key == 'Enter') {
             let value = $(this).val();
             let id = $(this).attr("id");
-            console.log(value, id);
+            // console.log(value, id);
 
             const Data = $.ajax({
                 url: './update_task.php',
@@ -33,7 +33,7 @@ $(document).ready(function () {
         let id = this.id;
         let value = this.value;
         let checked = this.checked;
-        console.log(id, value, checked);
+        // console.log(id, value, checked);
         // console.log(this);
 
         let status = null;
@@ -42,7 +42,7 @@ $(document).ready(function () {
         } else {
             status = 0;
         }
-        console.log(status);
+        // console.log(status);
 
         const Data = $.ajax({
             url: './update_task.php',
@@ -50,13 +50,13 @@ $(document).ready(function () {
             // dataType: "json",
             data: { checkBoxId: id, status: status },
             success: function (data) {
-                console.log(data);
+                // console.log(data);
             },
             error: function (xhr, status, error) {
                 console.error(xhr);
             }
         })
-        console.log(Data);
+        // console.log(Data);
 
 
         // if (!$(this).is(':checked')) {
@@ -77,5 +77,17 @@ $(document).ready(function () {
 
     // })
 
+    //    ----- Show Password on registration page on click -----------
+
+    $('#showPassword').click(function () {
+        console.log('clicked');
+        const password = $('#password');
+
+        // alert($(this).is(':checked'));
+        const pwd = $(this).is(':checked') ? password.attr('type', 'text') : password.attr('type', 'password');
+        // const pwd = $(this).is(':checked') ? console.log('clicked') : console.log('unclicked');
+
+        // console.log(pwd);
+    });
 
 });

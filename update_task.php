@@ -1,7 +1,5 @@
 <?php
-
-include_once('db_connect.php');
-
+include_once('includes/db_connect.php');
 // var_dump($_POST);
 // // Or
 // print_r($_POST);
