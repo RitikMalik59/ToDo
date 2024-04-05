@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
     if ($db_username !== $username && $db_password !== $password) {
 
         echo "Login Failed ! Please try Again .";
-        echo "<button> <a href='../login.php'>Login</a></button> ";
+        echo "<button> <a href='../login.php'>Login </a></button> ";
     }
 
     // var_dump($user['username']);
